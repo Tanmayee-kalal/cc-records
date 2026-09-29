@@ -201,9 +201,8 @@ The same workload was used in both environments to allow comparison of the measu
 
 #### Figure 1: Proxmox VE Dashboard
 
-## Proxmox Dashboard
+![Proxmox VE Dashboard](CC-Experiment-01-Hypervisor-Analysis/screenshots/type1-promox/01-proxmox-dashboard.png)
 
-![Proxmox Dashboard](screenshots/type1-promox/01-proxmox-dashboard.png)
 #### Figure 2: Proxmox VM Configuration
 
 ![Proxmox VM Configuration](CC-Experiment-01-Hypervisor-Analysis/screenshots/type1-promox/02-proxmox-vm-configuration.png)
