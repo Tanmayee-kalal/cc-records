@@ -1,0 +1,579 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f3ef;
+    color: #171717;
+    line-height: 1.6;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+    background: #171717;
+    color: white;
+}
+
+.hero-content {
+    max-width: 1100px;
+}
+
+.tag,
+.section-label {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.tag {
+    color: #b7b0a4;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.95;
+    letter-spacing: -4px;
+    margin-bottom: 30px;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: #c8c8c8;
+    max-width: 650px;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 70px;
+    border-top: 1px solid #555;
+    padding-top: 30px;
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-stats strong {
+    font-size: 42px;
+}
+
+.hero-stats span {
+    color: #aaa;
+    font-size: 14px;
+}
+
+
+/* GENERAL SECTIONS */
+
+.section {
+    padding: 110px 8%;
+}
+
+.section-heading {
+    margin-bottom: 45px;
+}
+
+.section-label {
+    color: #777;
+}
+
+.section h2 {
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.intro-text {
+    max-width: 800px;
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 35px;
+    border: 1px solid #ddd;
+    min-height: 210px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #666;
+}
+
+
+/* DARK SECTION */
+
+.dark-section {
+    background: #1b1b1b;
+    color: white;
+}
+
+.dark-section .section-label {
+    color: #aaa;
+}
+
+
+/* OBJECTIVES */
+
+.objectives {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: #444;
+}
+
+.objective {
+    background: #1b1b1b;
+    padding: 35px;
+    display: flex;
+    gap: 25px;
+}
+
+.objective span {
+    color: #888;
+    font-size: 14px;
+    min-width: 30px;
+}
+
+.objective p {
+    font-size: 18px;
+}
+
+
+/* ARCHITECTURE */
+
+.architecture {
+    display: flex;
+    align-items: stretch;
+    gap: 15px;
+}
+
+.service {
+    flex: 1;
+    padding: 35px;
+    background: white;
+    border: 1px solid #ddd;
+    min-height: 280px;
+}
+
+.service-number {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.service h3 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.port {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.service ul {
+    list-style: none;
+}
+
+.service li {
+    padding: 8px 0;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    color: #777;
+}
+
+.network-box {
+    margin-top: 25px;
+    padding: 25px;
+    background: #dedbd5;
+}
+
+.network-box strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* TABLES */
+
+.light-section {
+    background: #ebe9e4;
+}
+
+.endpoint-table,
+.results-table {
+    background: white;
+    border: 1px solid #d5d2cc;
+}
+
+.table-header,
+.table-row,
+.result-header,
+.result-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    padding: 20px 25px;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+}
+
+.table-header,
+.result-header {
+    background: #171717;
+    color: white;
+    font-weight: bold;
+}
+
+.table-row:last-child,
+.result-row:last-child {
+    border-bottom: none;
+}
+
+.method {
+    display: inline-block;
+    width: fit-content;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.get {
+    background: #e2eee4;
+    color: #286238;
+}
+
+.post {
+    background: #eee5d9;
+    color: #71491d;
+}
+
+
+/* DOCKER FLOW */
+
+.docker-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.docker-step {
+    flex: 1;
+    padding: 35px;
+    border: 1px solid #444;
+    min-height: 220px;
+}
+
+.docker-icon {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 30px;
+}
+
+.docker-step h3 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.docker-step p {
+    color: #aaa;
+}
+
+.flow-line {
+    width: 50px;
+    height: 1px;
+    background: #777;
+}
+
+
+/* COMMAND */
+
+.command-box {
+    background: #171717;
+    color: #ddd;
+    padding: 25px 30px;
+    overflow-x: auto;
+    margin-bottom: 35px;
+}
+
+.command-box code {
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.workloads {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.workload {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 25px;
+    text-align: center;
+}
+
+.workload strong {
+    display: block;
+    font-size: 28px;
+}
+
+.workload span {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* RESULTS */
+
+.result-header,
+.result-row {
+    grid-template-columns: 1fr 1fr 1.5fr 1.5fr 1fr;
+}
+
+.success {
+    font-weight: bold;
+    color: #2d703c;
+}
+
+
+/* EXTENDED RESULT */
+
+.highlight-result {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #ccc;
+}
+
+.highlight-result div {
+    background: #171717;
+    color: white;
+    padding: 40px 25px;
+}
+
+.highlight-result strong {
+    display: block;
+    font-size: 40px;
+}
+
+.highlight-result span {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.result-note {
+    margin-top: 20px;
+    color: #666;
+}
+
+
+/* MONITORING */
+
+.monitoring-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.monitor-card {
+    border: 1px solid #444;
+    padding: 35px;
+}
+
+.monitor-value {
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.monitor-card h3 {
+    margin-bottom: 10px;
+}
+
+.monitor-card p {
+    color: #aaa;
+}
+
+
+/* ANALYSIS */
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.analysis-card {
+    background: white;
+    padding: 40px;
+    border: 1px solid #ddd;
+}
+
+.analysis-card h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+
+/* CONCLUSION */
+
+.conclusion {
+    background: #171717;
+    color: white;
+    padding: 120px 8%;
+}
+
+.conclusion .section-label {
+    color: #aaa;
+}
+
+.conclusion h2 {
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 35px;
+}
+
+.conclusion > p {
+    max-width: 750px;
+    color: #bbb;
+    font-size: 18px;
+}
+
+.conclusion-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.conclusion-stats span {
+    border: 1px solid #555;
+    padding: 12px 20px;
+    color: #ccc;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #0e0e0e;
+    color: #777;
+    padding: 30px 8%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 13px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .hero-stats,
+    .cards,
+    .workloads {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .architecture,
+    .docker-flow {
+        flex-direction: column;
+    }
+
+    .arrow {
+        justify-content: center;
+        transform: rotate(90deg);
+    }
+
+    .objectives,
+    .analysis-grid,
+    .monitoring-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-result {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .section {
+        padding: 75px 6%;
+    }
+
+    .hero {
+        padding: 70px 6%;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-stats,
+    .cards,
+    .workloads,
+    .highlight-result {
+        grid-template-columns: 1fr;
+    }
+
+    .table-header,
+    .table-row,
+    .result-header,
+    .result-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .docker-flow {
+        align-items: stretch;
+    }
+}

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Containerized Microservice Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <p class="tag">LAB EVALUATION</p>
+
+            <h1>Containerized<br>Microservice Application</h1>
+
+            <p class="hero-subtitle">
+                Build, Deploy & Analyze a Containerized Microservice Application
+            </p>
+
+            <div class="hero-stats">
+                <div>
+                    <strong>3</strong>
+                    <span>Services</span>
+                </div>
+
+                <div>
+                    <strong>3</strong>
+                    <span>Containers</span>
+                </div>
+
+                <div>
+                    <strong>5</strong>
+                    <span>Workloads</span>
+                </div>
+
+                <div>
+                    <strong>0</strong>
+                    <span>Failed Requests</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- OVERVIEW -->
+    <section class="section">
+        <div class="section-heading">
+            <p class="section-label">01 — OVERVIEW</p>
+            <h2>Project Overview</h2>
+        </div>
+
+        <p class="intro-text">
+            This project demonstrates the development and deployment of a
+            containerized microservice application using Docker and Docker Compose,
+            followed by performance evaluation using ApacheBench.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Architecture</h3>
+                <p>Three independent REST-based microservices working together.</p>
+            </div>
+
+            <div class="card">
+                <h3>Containerization</h3>
+                <p>Each service is deployed independently using Docker containers.</p>
+            </div>
+
+            <div class="card">
+                <h3>Networking</h3>
+                <p>Docker Compose provides a shared network for service communication.</p>
+            </div>
+
+            <div class="card">
+                <h3>Performance</h3>
+                <p>ApacheBench is used to test different workload levels.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- OBJECTIVES -->
+    <section class="section dark-section">
+        <div class="section-heading">
+            <p class="section-label">02 — OBJECTIVES</p>
+            <h2>Project Objectives</h2>
+        </div>
+
+        <div class="objectives">
+            <div class="objective">
+                <span>01</span>
+                <p>Deploy three independent REST microservices.</p>
+            </div>
+
+            <div class="objective">
+                <span>02</span>
+                <p>Create separate Docker images for each service.</p>
+            </div>
+
+            <div class="objective">
+                <span>03</span>
+                <p>Use Docker Compose for multi-container deployment.</p>
+            </div>
+
+            <div class="objective">
+                <span>04</span>
+                <p>Configure a Docker network for service-to-service communication.</p>
+            </div>
+
+            <div class="objective">
+                <span>05</span>
+                <p>Evaluate performance using five workload levels.</p>
+            </div>
+
+            <div class="objective">
+                <span>06</span>
+                <p>Observe CPU and memory usage during execution.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ARCHITECTURE -->
+    <section class="section">
+        <div class="section-heading">
+            <p class="section-label">03 — ARCHITECTURE</p>
+            <h2>Microservice Architecture</h2>
+        </div>
+
+        <div class="architecture">
+
+            <div class="service product-service">
+                <div class="service-number">01</div>
+                <h3>Product Service</h3>
+                <p class="port">Port 5001</p>
+
+                <ul>
+                    <li>GET /health</li>
+                    <li>GET /products</li>
+                </ul>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="service order-service">
+                <div class="service-number">02</div>
+                <h3>Order Service</h3>
+                <p class="port">Port 5002</p>
+
+                <ul>
+                    <li>GET /health</li>
+                    <li>POST /orders</li>
+                    <li>Calls Product & Payment</li>
+                </ul>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="service payment-service">
+                <div class="service-number">03</div>
+                <h3>Payment Service</h3>
+                <p class="port">Port 5003</p>
+
+                <ul>
+                    <li>GET /health</li>
+                    <li>POST /pay</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="network-box">
+            <strong>Docker Compose Bridge Network</strong>
+            <p>
+                The services communicate with each other through the shared
+                Docker network using service names.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- API ENDPOINTS -->
+    <section class="section light-section">
+        <div class="section-heading">
+            <p class="section-label">04 — API</p>
+            <h2>Service Endpoints</h2>
+        </div>
+
+        <div class="endpoint-table">
+            <div class="table-header">
+                <span>Service</span>
+                <span>Method</span>
+                <span>Endpoint</span>
+            </div>
+
+            <div class="table-row">
+                <span>Product</span>
+                <span class="method get">GET</span>
+                <span>/health</span>
+            </div>
+
+            <div class="table-row">
+                <span>Product</span>
+                <span class="method get">GET</span>
+                <span>/products</span>
+            </div>
+
+            <div class="table-row">
+                <span>Order</span>
+                <span class="method get">GET</span>
+                <span>/health</span>
+            </div>
+
+            <div class="table-row">
+                <span>Order</span>
+                <span class="method post">POST</span>
+                <span>/orders</span>
+            </div>
+
+            <div class="table-row">
+                <span>Payment</span>
+                <span class="method get">GET</span>
+                <span>/health</span>
+            </div>
+
+            <div class="table-row">
+                <span>Payment</span>
+                <span class="method post">POST</span>
+                <span>/pay</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DOCKER -->
+    <section class="section dark-section">
+        <div class="section-heading">
+            <p class="section-label">05 — CONTAINERIZATION</p>
+            <h2>Docker Deployment</h2>
+        </div>
+
+        <div class="docker-flow">
+
+            <div class="docker-step">
+                <div class="docker-icon">01</div>
+                <h3>Docker Images</h3>
+                <p>Each microservice is packaged into its own Docker image.</p>
+            </div>
+
+            <div class="flow-line"></div>
+
+            <div class="docker-step">
+                <div class="docker-icon">02</div>
+                <h3>Docker Compose</h3>
+                <p>Compose manages the multi-container application.</p>
+            </div>
+
+            <div class="flow-line"></div>
+
+            <div class="docker-step">
+                <div class="docker-icon">03</div>
+                <h3>Shared Network</h3>
+                <p>Containers communicate through the Docker network.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- WORKLOAD TESTING -->
+    <section class="section">
+        <div class="section-heading">
+            <p class="section-label">06 — PERFORMANCE TESTING</p>
+            <h2>ApacheBench Workloads</h2>
+        </div>
+
+        <p class="intro-text">
+            ApacheBench 2.3 was used to send POST requests to the Order Service
+            and evaluate how the application behaves under increasing concurrency.
+        </p>
+
+        <div class="command-box">
+            <code>
+                ab -n 20 -c 1 http://localhost:5002/orders
+            </code>
+        </div>
+
+        <div class="workloads">
+            <div class="workload">
+                <strong>W1</strong>
+                <span>Concurrency 1</span>
+            </div>
+
+            <div class="workload">
+                <strong>W2</strong>
+                <span>Concurrency 2</span>
+            </div>
+
+            <div class="workload">
+                <strong>W3</strong>
+                <span>Concurrency 4</span>
+            </div>
+
+            <div class="workload">
+                <strong>W4</strong>
+                <span>Concurrency 8</span>
+            </div>
+
+            <div class="workload">
+                <strong>W5</strong>
+                <span>Concurrency 16</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- RESULTS -->
+    <section class="section light-section">
+        <div class="section-heading">
+            <p class="section-label">07 — RESULTS</p>
+            <h2>Performance Results</h2>
+        </div>
+
+        <div class="results-table">
+            <div class="result-header">
+                <span>Workload</span>
+                <span>Concurrency</span>
+                <span>Avg. Response</span>
+                <span>Throughput</span>
+                <span>Failures</span>
+            </div>
+
+            <div class="result-row">
+                <span>W1</span>
+                <span>1</span>
+                <span>19.191 ms</span>
+                <span>52.11 req/s</span>
+                <span class="success">0</span>
+            </div>
+
+            <div class="result-row">
+                <span>W2</span>
+                <span>2</span>
+                <span>17.879 ms</span>
+                <span>111.86 req/s</span>
+                <span class="success">0</span>
+            </div>
+
+            <div class="result-row">
+                <span>W3</span>
+                <span>4</span>
+                <span>24.876 ms</span>
+                <span>160.79 req/s</span>
+                <span class="success">0</span>
+            </div>
+
+            <div class="result-row">
+                <span>W4</span>
+                <span>8</span>
+                <span>38.282 ms</span>
+                <span>208.98 req/s</span>
+                <span class="success">0</span>
+            </div>
+
+            <div class="result-row">
+                <span>W5</span>
+                <span>16</span>
+                <span>63.986 ms</span>
+                <span>250.05 req/s</span>
+                <span class="success">0</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EXTENDED TEST -->
+    <section class="section">
+        <div class="section-heading">
+            <p class="section-label">08 — EXTENDED TEST</p>
+            <h2>1000 Request Test</h2>
+        </div>
+
+        <div class="highlight-result">
+            <div>
+                <strong>1000</strong>
+                <span>Requests Completed</span>
+            </div>
+
+            <div>
+                <strong>16</strong>
+                <span>Concurrency</span>
+            </div>
+
+            <div>
+                <strong>616.02</strong>
+                <span>Requests / Second</span>
+            </div>
+
+            <div>
+                <strong>0</strong>
+                <span>Failed Requests</span>
+            </div>
+        </div>
+
+        <p class="result-note">
+            Average response time: <strong>25.973 ms</strong> |
+            Total time: <strong>1.623 s</strong>
+        </p>
+    </section>
+
+
+    <!-- RESOURCE MONITORING -->
+    <section class="section dark-section">
+        <div class="section-heading">
+            <p class="section-label">09 — MONITORING</p>
+            <h2>Resource Utilization</h2>
+        </div>
+
+        <div class="monitoring-grid">
+
+            <div class="monitor-card">
+                <div class="monitor-value">0.01–0.04%</div>
+                <h3>CPU Usage</h3>
+                <p>
+                    CPU utilization remained very low during the observed tests,
+                    indicating no CPU saturation.
+                </p>
+            </div>
+
+            <div class="monitor-card">
+                <div class="monitor-value">58.66 MiB</div>
+                <h3>Highest Memory</h3>
+                <p>
+                    The Payment Service recorded the highest observed memory usage.
+                </p>
+            </div>
+
+            <div class="monitor-card">
+                <div class="monitor-value">CPU</div>
+                <h3>Not the Bottleneck</h3>
+                <p>
+                    CPU was not the main limiting resource in the observed workload.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ANALYSIS -->
+    <section class="section">
+        <div class="section-heading">
+            <p class="section-label">10 — ANALYSIS</p>
+            <h2>Performance Analysis</h2>
+        </div>
+
+        <div class="analysis-grid">
+
+            <div class="analysis-card">
+                <h3>Throughput</h3>
+                <p>
+                    Throughput increased from
+                    <strong>52.11 req/s</strong> to
+                    <strong>250.05 req/s</strong>
+                    as concurrency increased.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Response Time</h3>
+                <p>
+                    Average response time increased from
+                    <strong>19.191 ms</strong> to
+                    <strong>63.986 ms</strong>
+                    at higher concurrency.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Reliability</h3>
+                <p>
+                    All five workload levels completed with
+                    <strong>0 failed requests</strong>.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Memory</h3>
+                <p>
+                    Memory usage was more significant than CPU usage,
+                    with the Payment Service reaching approximately
+                    <strong>58.66 MiB</strong>.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CONCLUSION -->
+    <section class="conclusion">
+        <p class="section-label">11 — CONCLUSION</p>
+
+        <h2>
+            Containerized. Connected.<br>
+            Tested. Analyzed.
+        </h2>
+
+        <p>
+            The three Flask microservices were successfully containerized and
+            deployed. Docker Compose enabled shared networking and service-name
+            communication. All five workloads completed with zero failures,
+            while throughput increased and response time increased at higher load.
+        </p>
+
+        <div class="conclusion-stats">
+            <span>3 Microservices</span>
+            <span>Docker Compose</span>
+            <span>ApacheBench</span>
+            <span>0 Failures</span>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Containerized Microservice Application</p>
+        <p>LAB EVALUATION • KLE Technological University</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
