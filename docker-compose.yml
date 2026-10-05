@@ -1,0 +1,6 @@
+services:
+  webpage:
+    build: .
+    container_name: microservice-webpage
+    ports:
+      - "8080:80"
